@@ -13,8 +13,12 @@ import math
     ('3+4*3/(3+2)*(1+1)', 7.8),
     ('0-0+1', 1),
     ('0-0-1', -1),
-    ('1+1+1/3-1+0+0+0', 1.33)
+    ('1+1+1/3-1+0+0+0', 1.33),
+    ('1/0', None) # special test for divide by zero scenario
 ])
 def test_calculator(input, expected):
         actual = parse(input)
-        assert math.isclose(actual, expected, rel_tol=1e-2)
+        if actual is None:
+            assert input == '1/0'
+        else:
+            assert math.isclose(actual, expected, rel_tol=1e-2)

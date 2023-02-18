@@ -32,25 +32,12 @@ def arithmetic_expression(draw):
 @example('0-0-1')
 @example('1+1+1/3-1+0+0+0')
 def test_calculator(input):
-    actual_passed = True
-    expected_passed = True
-    # Ugly hack to make sure both parse()
-    # and eval() pass before comparing their
-    # output.
-    # Also, eval() is evil - DO NOT use them
-    # in your code especially on user input.
     try:
-        parse(input)
-    except Exception:
-        actual_passed = False
-    try:
-        eval(input)
-    except Exception:
-        expected_passed = False
-
-    if actual_passed and expected_passed:
-        actual = parse(input)
         expected = eval(input)
+        actual = parse(input)
         assert math.isclose(actual, expected, rel_tol=1e-2)
-    else:
+    except ZeroDivisionError:
+        # skip if hypothesis creates division by 0 scenario
+        # This scenario is handled directly in unit.py
         assert True
+    
