@@ -9,12 +9,12 @@ def arithmetic_expression(draw):
     op = draw(st.sampled_from(['+', '-', '*', '/']))
     left = draw(st.integers(min_value=0, max_value=100))
     right = draw(st.integers(min_value=0, max_value=100))
-    outer_braces = draw(st.booleans())
-    left_braces = draw(st.booleans())
-    right_braces = draw(st.booleans())
-    left_expr = f"{'(' if left_braces else ''}{left}{')' if left_braces else ''}"
-    right_expr = f"{'(' if right_braces else ''}{right}{')' if right_braces else ''}"
-    expr = f"{'(' if outer_braces else ''}{left_expr}{op}{right_expr}{')' if outer_braces else ''}"
+    outer_exp_braces = draw(st.booleans())
+    left_exp_braces = draw(st.booleans())
+    right_exp_braces = draw(st.booleans())
+    left_expr = f"{'(' if left_exp_braces else ''}{left}{')' if left_exp_braces else ''}"
+    right_expr = f"{'(' if right_exp_braces else ''}{right}{')' if right_exp_braces else ''}"
+    expr = f"{'(' if outer_exp_braces else ''}{left_expr}{op}{right_expr}{')' if outer_exp_braces else ''}"
     
     return f"{expr}"
 
