@@ -1,6 +1,5 @@
 from ..calculator import *
 
-
 import math
 from hypothesis import example, given, settings, strategies as st
 
@@ -33,6 +32,9 @@ def arithmetic_expression(draw):
 @example('1+1+1/3-1+0+0+0')
 def test_calculator(input):
     try:
+        # eval() is evil esp. for arbitrary user inputs.
+        # Here, hypothesis generates input that are only
+        # capable of being arithmetic expressions.
         expected = eval(input)
         actual = parse(input)
         assert math.isclose(actual, expected, rel_tol=1e-2)
