@@ -77,7 +77,7 @@ def evaluate(c: chr, operand_stack: List[int], operator_stack: List[int]):
         raise InvalidExpression(f'Error occured while evaluating operator {c}')
 
 def parse(expr: str) -> Tuple[int, int]:
-    """ Main parser to evaluate simple arithmetic expressions."""
+    """ Main parser to evaluate arithmetic expressions."""
     
     def parse_inner(expr: str, start: int, end: int) -> Tuple[int, int]:
         current_index = start
