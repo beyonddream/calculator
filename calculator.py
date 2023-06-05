@@ -12,6 +12,10 @@
 
 from typing import List, Tuple
 
+import logging
+log = logging.getLogger(__name__)
+
+
 class InvalidExpression(Exception):
     pass
 
@@ -148,10 +152,12 @@ def parse(expr: str) -> Tuple[int, int]:
         sum, _ = parse_inner(expr, 0, len(expr))
         return sum
     except Exception as e:
-        print(f'Error evaluating expression {expr}: {e}')    
+        log.error(f'Error evaluating expression {expr}: {e}')    
 
 
 if __name__ == '__main__':
+    import sys
+    logging.basicConfig(level=logging.INFO, stream=sys.stdout)
     expression = input()
     sum = parse(expression)
-    print(f'Evaluation of expression: {expression} is {sum}')
+    log.info(f'Evaluation of expression: {expression} is {sum}')
