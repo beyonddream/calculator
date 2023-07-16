@@ -1,6 +1,6 @@
 # calculator
 
-A simple parser written in python for evaluating expressions and sub-expressions consisting of arithmetic operations (`plus`, `minus`, `multiplication` and `division`) involving `int`.
+A simple parser written in python for evaluating expressions and sub-expressions consisting of arithmetic operations (`plus`, `minus`, `multiplication` and `division` and `parenthesis`) involving `int`.
 
 
 # Usage
