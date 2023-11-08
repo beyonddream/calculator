@@ -17,12 +17,14 @@ Evaluation of expression: (3+4)*3/2 is 10.5
 
 * python 3.9+
 * pip
+* poetry
 * hypothesis (to run property based test suite)
+* conda/venv for virtual environment creation and maintenance
 
 ```python
-
-$ pip install -r requirements.txt
-
+# assuming virtual environment is activated from here onwards
+$ pip install poetry
+$ poetry install
 ```
 
 # Test
