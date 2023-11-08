@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "calculator"
+version = "1.0.0"
+description = "A simple parser written in python for evaluating expressions and sub-expressions consisting of arithmetic operations (`plus`, `minus`, `multiplication` and `division` and `parenthesis`) involving `int`."
+authors = ["beyonddream <43626691+beyonddream@users.noreply.github.com>"]
+license = "Unlicense"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+[tool.poetry.group.dev.dependencies]
+hypothesis = "^6.88.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
